@@ -1,0 +1,25 @@
+<robot name="l0_bus">
+
+  <link name="base_link" />
+
+
+  <link name="lidar_top/os_sensor" />
+  <link name="stereo_left" />
+
+
+  
+  <joint name="lidar_top_link" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_top/os_sensor" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  
+
+
+  <joint name="stereo_left_link" type="fixed">
+    <parent link="base_link" />
+    <child link="stereo_left" />
+    <origin xyz="1.2071032524108887 0.11899397522211075 -0.8313015103340149" rpy="-1.5636708736419678 0.0407794751226902 -1.5704575777053833" />
+  </joint>
+
+</robot>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<launch>
+    <arg name="stdout" default="screen" />
+    <node pkg="tf" type="static_transform_publisher" name="lidar_top_link" args="0 0 0 0 0 0 base_link lidar_top/os_sensor 1" output="screen"/>
+    <node pkg="tf" type="static_transform_publisher" name="stereo_left_link" args="1.20116 0.0845958 -0.844025 -1.53001444679 -0.00711166 -1.57045782679 base_link stereo_left 1" output="screen"/>
+</launch>

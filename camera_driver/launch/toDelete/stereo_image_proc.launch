@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="stereo_image_proc" pkg="stereo_image_proc" type="stereo_image_proc" output="screen" clear_params="true">
+        <remap from="/left/image_raw" to="/camera/stereo_left/image_raw"/> 
+        <remap from="/right/image_raw" to="/camera/stereo_right/image_raw"/> 
+        <remap from="/left/camera_info" to="/camera/stereo_left/camera_info"/> 
+        <remap from="/right/camera_info" to="/camera/stereo_right/camera_info"/> 
+    </node>
+</launch>

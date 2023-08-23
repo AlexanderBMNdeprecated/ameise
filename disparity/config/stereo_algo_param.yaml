@@ -1,0 +1,18 @@
+# Setting parameters for StereoSGBM algorithm
+numDisparities: 48
+blockSize: 21
+preFilterType: 1
+preFilterSize: 11
+preFilterCap: 10
+textureThreshold: 50
+uniquenessRatio: 15
+speckleRange: 25
+speckleWindowSize: 100
+disp12MaxDiff: 5
+minDisparity: 0
+# Extrinsic params
+T_cn_cnm1:
+- [0.9999953671317539, 0.0030397510442238254, -0.00016008942321401467, -0.214465198013171]
+- [-0.0030406744285965638, 0.9999766267765651, -0.00612374065314685, 0.0011504041865814088]
+- [0.0001414710343631969, 0.006124199062478668, 0.9999812369098707, 0.00022602861211199878]
+- [0.0, 0.0, 0.0, 1.0]

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="cam_1_name" default="stereo_left"/>
+    <arg name="cam_2_name" default="mono_left"/>
+    <arg name="cam_3_name" default="mono_right"/>
+    <arg name="model" default="s"/>
+
+    <include file="$(find object_detection)/launch/object_detection.launch">
+        <arg name="cam_name" value="$(arg cam_1_name)"/>
+        <arg name="model" value="$(arg model)"/>
+    </include>
+
+    <include file="$(find object_detection)/launch/object_detection.launch">
+        <arg name="cam_name" value="$(arg cam_2_name)"/>
+        <arg name="model" value="$(arg model)"/>
+    </include>
+
+    <include file="$(find object_detection)/launch/object_detection.launch">
+        <arg name="cam_name" value="$(arg cam_3_name)"/>
+        <arg name="model" value="$(arg model)"/>
+    </include>
+
+
+</launch>

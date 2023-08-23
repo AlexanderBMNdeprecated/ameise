@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="cam_name" default="No Camera Name"/>
+    <arg name="publish_camera_info" default="True"/>
+    <arg name="mode" default="calib"/>
+    <arg name="set_pixel_format_to_bayer" default="False"/>
+
+    <node ns="$(arg cam_name)" name="raw_data" pkg="camera_driver" type="raw_node.py" args="$(arg cam_name)" output="screen" clear_params="true">
+        <param name="publish_camera_info" value="$(arg publish_camera_info)"/>
+        <param name="mode" value="$(arg mode)"/>
+        <param name="set_pixel_format_to_bayer" value="$(arg set_pixel_format_to_bayer)"/>
+    </node>
+</launch>

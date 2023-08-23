@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="lidar_pos" pkg="imu_complementary_filter" type="complementary_filter_node" args="publish_debug_topics=true">
+        <param name="publish_debug_topics" value="true"/>
+        <remap from="imu/data_raw" to="/lidar/OS1_top/imu" />
+    </node>  
+</launch>

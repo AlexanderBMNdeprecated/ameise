@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<launch>
+    <arg name="stdout" default="screen" />
+    <node pkg="tf" type="static_transform_publisher" name="sensor2_rot_tf" args="0 0 0 -1.57079632679 0 -1.57079632679 rotated_stereo_left stereo_left 10" />
+    <node pkg="tf" type="static_transform_publisher" name="velo2cam_tf" args="-0.750254 0.0495606 0.759282 -0.0113519 -0.0448667 -0.0458761 rotated_stereo_left lidar_top/os_sensor 100" />
+</launch>

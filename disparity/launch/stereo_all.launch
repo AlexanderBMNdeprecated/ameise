@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="cam_1_name" default="stereo_left"/>
+    <arg name="cam_2_name" default="stereo_right"/>
+    <arg name="mode" default="show"/>
+    <arg name="scaling" default="50"/>
+    <arg name="publish_camera_info" default="True"/>
+    <arg name="publish_pointcloud" default="False"/>
+    <arg name="publish_cam_1" default="True"/>
+    <arg name="publish_cam_2" default="False"/>
+    <arg name="cut_image" default="True"/>
+
+    <include file="$(find camera_driver)/launch/raw.launch">
+        <arg name="cam_name" value="$(arg cam_1_name)"/>
+        <arg name="publish_camera_info" value="$(arg publish_camera_info)"/>
+        <arg name="mode" value="$(arg mode)"/>
+    </include>
+
+    <include file="$(find camera_driver)/launch/raw.launch">
+        <arg name="cam_name" value="$(arg cam_2_name)"/>
+        <arg name="publish_camera_info" value="$(arg publish_camera_info)"/>
+        <arg name="mode" value="$(arg mode)"/>
+    </include>
+
+    <include file="$(find disparity)/launch/disparity.launch">
+        <arg name="scaling" value="$(arg scaling)"/>
+        <arg name="publish_pointcloud" value="$(arg publish_pointcloud)"/>
+        <arg name="publish_cam_1" value="$(arg publish_cam_1)"/>
+        <arg name="publish_cam_2" value="$(arg publish_cam_2)"/>
+        <arg name="cut_image" value="$(arg cut_image)"/>
+    </include>
+</launch>

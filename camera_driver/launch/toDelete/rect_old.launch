@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <node ns="mono_left" pkg="nodelet" type="nodelet" name="rectify_color" args="standalone image_proc/rectify"/>
+    <node ns="stereo_left" pkg="nodelet" type="nodelet" name="rectify_color" args="standalone image_proc/rectify"/>
+    <node ns="mono_right" pkg="nodelet" type="nodelet" name="rectify_color" args="standalone image_proc/rectify"/>
+</launch>

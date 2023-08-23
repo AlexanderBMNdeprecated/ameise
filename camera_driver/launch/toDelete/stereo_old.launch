@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="cam_name_left" default="stereo_left" />
+    <arg name="cam_name_right" default="stereo_right" />
+    <arg name="publish_left_rect" default="False" />
+    <arg name="scaling_disparity" default="50" />
+    <param name="scaling_disparity" value="$(arg scaling_disparity)"/>
+    <node name="stereo_left_raw_node" pkg="basler_cam" type="cam_node.py" args="$(arg cam_name_left)"  output="screen" clear_params="true"/>
+    <node name="center_cam_rect_node" pkg="basler_cam" type="rect_node.py" args="$(arg cam_name_left)" output="screen" clear_params="true"/>
+    <node name="stereo_right_raw_node" pkg="basler_cam" type="cam_node.py" args="$(arg cam_name_right)" output="screen" clear_params="true"/>
+    <node name="disparity_node" pkg="basler_cam" type="stereo_cam_node.py" args="$(arg cam_name_left)-$(arg cam_name_right)-$(arg publish_left_rect)" output="screen" clear_params="true">
+            <param name="cam_name_left" value="$(arg cam_name_left)"/>
+            <param name="cam_name_right" value="$(arg cam_name_right)"/>
+            <param name="publish_left_rect" value="$(arg publish_left_rect)"/>
+    </node>
+</launch>

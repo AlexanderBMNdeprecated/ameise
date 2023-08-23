@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="cam_name" default="No Camera Name" />
+    <param name="cam_name" value="$(arg cam_name)"/>
+    <node name="$(arg cam_name)_raw_node" pkg="basler_cam" type="cam_node.py" args="stereo_right" output="screen" clear_params="true"/>
+</launch>

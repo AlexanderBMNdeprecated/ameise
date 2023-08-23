@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="cam_name" default="No Camera Name"/>
+    <arg name="cut_image" default="True"/>
+    <arg name="pub_rect_info" default="False"/>
+
+
+    <node ns="$(arg cam_name)" name="image_rect" pkg="rectification" type="rect_node.py" args="$(arg cam_name)" output="screen" clear_params="true">
+        <param name="cut_image" value="$(arg cut_image)"/>
+        <param name="pub_rect_info" value="$(arg pub_rect_info)"/>
+    </node>
+</launch>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="scaling" default="50"/>
+    <arg name="publish_pointcloud" default="False"/>
+    <arg name="publish_cam_1" default="False"/>
+    <arg name="publish_cam_2" default="False"/>
+    <arg name="cut_image" default="True"/>
+
+    <node ns="stereo" name="disparity_image" pkg="disparity" type="disparity_node.py" output="screen" clear_params="true">
+        <param name="scaling" value="$(arg scaling)"/>
+        <param name="publish_pointcloud" value="$(arg publish_pointcloud)"/>
+        <param name="publish_cam_1" value="$(arg publish_cam_1)"/>
+        <param name="publish_cam_2" value="$(arg publish_cam_2)"/>
+        <param name="cut_image" value="$(arg cut_image)"/>
+    </node>
+</launch>

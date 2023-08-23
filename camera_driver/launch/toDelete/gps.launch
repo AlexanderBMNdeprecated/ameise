@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="cam_name" default="No Camera Name" />
+    <param name="cam_name" value="$(arg cam_name)"/>
+    <node name="$gps_node" pkg="pano_pkg" type="send_gps.py" output="screen" clear_params="true"/>
+</launch>

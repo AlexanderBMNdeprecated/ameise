@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="cam_name" default="No Camera Name" />
+    <param name="cam_name" value="$(arg cam_name)"/>
+    <arg name="mode" default="show" />
+    <param name="mode" value="$(arg mode)"/>
+    <node name="$(arg cam_name)_raw_node" pkg="basler_cam" type="cam_node.py" args="$(arg cam_name)" output="screen" clear_params="true"/>
+    <node name="$(arg cam_name)_rect_node" pkg="basler_cam" type="rect_node.py" args="$(arg cam_name)" output="screen" clear_params="true"/>
+</launch>
+<!--<node name="$(arg cam_name)_rect_node" pkg="basler_cam" type="rect_node.py" args="$(arg cam_name)" output="screen" clear_params="true"/>
+    -->

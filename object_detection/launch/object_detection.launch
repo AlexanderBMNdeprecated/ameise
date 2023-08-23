@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="cam_name" default="No Camera Name"/>
+    <arg name="model" default="s"/>
+
+    <node ns="$(arg cam_name)" name="object_detection" pkg="object_detection" type="object_detection_node.py" args="$(arg cam_name)" output="screen" clear_params="true">
+        <param name="model" value="$(arg model)"/>
+    </node>
+</launch>

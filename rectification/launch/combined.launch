@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="cam_name" default="No Camera Name"/>
+    <arg name="mode" default="calib"/>
+    <arg name="publish_camera_info" default="True"/>
+    <arg name="cut_image" default="True"/>
+    <arg name="pub_rect_info" default="False"/>
+    <arg name="set_pixel_format_to_bayer" default="False"/>
+
+    <include file="$(find camera_driver)/launch/raw.launch">
+        <arg name="cam_name" value="$(arg cam_name)"/>
+        <arg name="publish_camera_info" value="$(arg publish_camera_info)"/>
+        <arg name="mode" value="$(arg mode)"/>
+        <arg name="set_pixel_format_to_bayer" value="$(arg set_pixel_format_to_bayer)"/>
+    </include>
+
+    <include file="$(find rectification)/launch/rect.launch">
+        <arg name="cam_name" value="$(arg cam_name)"/>
+        <arg name="cut_image" value="$(arg cut_image)"/>
+        <arg name="pub_rect_info" value="$(arg pub_rect_info)"/>
+    </include>
+</launch>
